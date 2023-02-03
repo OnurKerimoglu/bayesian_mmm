@@ -29,13 +29,13 @@
 \usepackage{wrapfig}
 \usepackage{placeins}
 
-\title{HAMS Data Science Challenge: Bayesian MMM}
+\title{Bayesian MMM example}
 \author{Onur Kerimoglu}
 %\date{\today}
-\date{January 26, 2023}
+\date{03.02.2023}
 
 \pdfinfo{%
-  /Title    (HAMS Data Science Challenge)
+  /Title    (Bayesian MMM)
   /Author   (Onur Kerimoglu)
   /Creator  (Onur Kerimoglu)
   /Producer ()
@@ -54,9 +54,9 @@
 \maketitle
 
 \section{Background}
-This report presents the answers to the questions raised in the \href{https://github.com/haensel-ams/recruitment_challenge/tree/master/DataScience_202209}{`Data Science Challenge' by haensel-ams}. In a nutshell, the task is in the context of performance marketing and the task is to apply a bayesian mixed-media model (MMM) on our test dataset an interpret the insights from the model.
+In a nutshell, the task is in the context of performance marketing and the task is to apply a bayesian mixed-media model (MMM) on our test dataset an interpret the insights from the model.
 
-The sourcode of the notebook with which the presented material is produced, and this report itself is publicly available \href{https://github.com/OnurKerimoglu/bayesian_mmm}{here}.
+The sourcode of the notebook with which the presented material is produced, and this report itself is publicly available \href{https://github.com/OnurKerimoglu/bayesian_mmm/examples/bayesian_mmm_example_enhanced_newdataset.ipynb}{here}.
 
 \section{Answers}
 
@@ -93,7 +93,7 @@ I am not sure if I understand this question well. Fig.~\ref{f:pred_prior} shows 
 
 \subsection {How good is your model performing? How you do measure it?}
 
-Predicted vs observed revenue is shown in Fig.~\ref{f:preds_vs_obs}. Expect one week, the observations lay within 2 standard deviations plus/minus the predictions. That instance is likely due to a special event, like a promotion or a holiday, which is not accounted for by the model. The mean absolute error is 26938 EUR (?), which corresponds to about 20\% in terms of percentage. 
+Predicted vs observed revenue is shown in Fig.~\ref{f:preds_vs_obs}. Except for two weeks, the observations lay within 2 standard deviations plus/minus the predictions. That instance is likely due to a special event, like a promotion or a holiday, which is not accounted for by the model. The mean absolute error is 26938 EUR (?), which corresponds to about 20\% in terms of percentage. 
 
 \begin{figure}[!h]
   \centering
@@ -107,7 +107,7 @@ Predicted vs observed revenue is shown in Fig.~\ref{f:preds_vs_obs}. Expect one 
 \subsection {(Bonus) Can you derive ROI (return on investment) estimates per channel? What is the best channel in terms of ROI?}
 Results are shown in Fig.~\ref{f:CS_ROI}. For each channel $i$, percentage $ROI^i$ was calculated according to:
 \begin{equation}\label{eq:roi}
- ROI^i = \frac{\sum_t C_t^i - \sum S_t^i}{\sum S_t^i} * 100
+ ROI^i = \frac{\sum_t C_t^i - \sum_t S_t^i}{\sum_t S_t^i} * 100
 \end{equation}
 where $C_t^i$ and $S_t^i$ are the revenue contribution and spends to the channel $i$ at a given time ($t$).  
 
